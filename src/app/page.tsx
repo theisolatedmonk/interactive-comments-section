@@ -42,6 +42,7 @@ export default function Home() {
                 userName={reply.user.username}
                 time={reply.createdAt}
                 message={reply.content}
+                currentUer={data.currentUser.username === reply.user.username}
               />
             ))}
           </div>
