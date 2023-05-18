@@ -14,18 +14,38 @@ import Post from "./Post";
 import Reply from "./Reply";
 import OthersReplyType from "@/OthersReply";
 import EditReply from "./EditReply";
+import StaticReply from "./StaticReply";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center gap-2 p-24 bg-[hsl(223,19%,93%)]">
+    <main className="flex min-h-screen flex-col items-center gap-2 p-24 bg-[hsl(223,19%,93%)] font-Rubik">
+      {/* {data.comments.map((comment) => (
+       
+      ))} */}
+
       {data.comments.map((comment) => (
-        <Post
-          avtar={comment.user.image.png}
-          userName={comment.user.username}
-          time={comment.createdAt}
-          message={comment.content}
-          like={comment.score}
-        />
+        <>
+          <Post
+            PostAvtar={comment.user.image.png}
+            userName={comment.user.username}
+            time={comment.createdAt}
+            message={comment.content}
+            like={comment.score}
+          />
+          <div className="flex gap-4   flex-col ">
+            {comment.replies.map((reply) => (
+              <StaticReply
+                Replyavtar={reply.user.image.png}
+                like={reply.score}
+                replyingTo={reply.replyingTo}
+                replyText={reply.content}
+                userName={reply.user.username}
+                time={reply.createdAt}
+                message={reply.content}
+              />
+            ))}
+          </div>
+        </>
       ))}
       <Reply avtar={data.currentUser.image.png} />
       {/* <OthersReplyType
@@ -37,7 +57,7 @@ export default function Home() {
         }
         like={0}
       /> */}
-      <EditReply avtar={data.currentUser.image.png} like={0}/>
+      {/* <EditReply avtar={data.currentUser.image.png} like={0}/> */}
     </main>
   );
 }

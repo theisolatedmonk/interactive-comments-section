@@ -2,8 +2,8 @@
 import data from "@/data.json";
 import React from "react";
 import Image from "next/image";
-import amyrobsonAvtar from "@/images/avatars/image-amyrobson.png";
-import juliusomoAvtar from "@/images/avatars/image-juliusomo.png";
+import amyrobsonavtar from "@/images/avatars/image-amyrobson.png";
+import juliusomoavtar from "@/images/avatars/image-juliusomo.png";
 import maxblagun from "@/images/avatars/image-maxblagun.png";
 import ramsesmiron from "@/images/avatars/image-ramsesmiron.png";
 
@@ -14,7 +14,7 @@ import minusIcon from "@/images/icon-minus.svg";
 import pluseIcon from "@/images/icon-plus.svg";
 
 type ElementType = {
-  avtar: any;
+  PostAvtar: any;
   userName: string;
   time: string;
   message: string;
@@ -36,8 +36,14 @@ export default function Post(props: ElementType) {
       <div className="flex flex-col gap-3">
         <div className=" flex justify-between items-center">
           <div className="flex items-center gap-2">
-            {/* <Image className="w-6 h-6" src={props.avtar} alt={""} /> */}
-            <img className="w-6 h-6" src={props.avtar} alt={""} />
+            <Image
+              width={100}
+              height={100}
+              className="w-6 h-6"
+              src={removeFirstCharacter(props.PostAvtar)}
+              alt={""}
+            />
+            {/* <img className="w-6 h-6" src={props.PostAvtar} alt={""} /> */}
             <p className="text-[hsl(212,24%,26%)]">{props.userName}</p>
             <p>{props.time}</p>
           </div>
@@ -51,4 +57,8 @@ export default function Post(props: ElementType) {
       </div>
     </div>
   );
+}
+
+function removeFirstCharacter(str: string) {
+  return str.substring(1);
 }
