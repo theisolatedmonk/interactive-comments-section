@@ -12,22 +12,22 @@ import pluseIcon from "@/images/icon-plus.svg";
 import Post from "./Post";
 
 type ReplyType = {
-avtar:any,
-
-}
+  avtar: string;
+};
 
 export default function Reply(props: ReplyType) {
   return (
     <div
-    className="
+      className="
     post flex   p-4 bg-[hsl(0,0%,100%)] w-[600px] gap-2 rounded-md justify-between  items-start 
     "
-  >
-    <Image className="w-6 h-6" src={props.avtar} alt={""} />
-    <textarea className="resize-y rounded-md w-full text-[hsl(211,10%,45%)] border "></textarea>
-    <button className="bg-[hsl(238,40%,52%)] hover:bg-[hsl(239,57%,85%)] px-4 py-2 font-bold text-[hsl(0,0%,100%)] rounded-lg">
-      Reply
-    </button>
-  </div>
-  )
+    >
+      <Image className="w-6 h-6" src={props.avtar} alt={""} />
+      <img className="w-6 h-6" src={props.avtar} alt={""} />
+      <textarea className="resize-y rounded-md w-full text-[hsl(211,10%,45%)] border "></textarea>
+      <button className="bg-[hsl(238,40%,52%)] hover:bg-[hsl(239,57%,85%)] px-4 py-2 font-bold text-[hsl(0,0%,100%)] rounded-lg">
+        Reply
+      </button>
+    </div>
+  );
 }
