@@ -13,6 +13,7 @@ import pluseIcon from "@/images/icon-plus.svg";
 import Post from "./Post";
 import Reply from "./Reply";
 import OthersReplyType from "@/OthersReply";
+import EditReply from "./EditReply";
 
 export default function Home() {
   return (
@@ -27,7 +28,7 @@ export default function Home() {
         />
       ))}
       <Reply avtar={data.currentUser.image.png} />
-      <OthersReplyType
+      {/* <OthersReplyType
         avtar={maxblagun}
         userName={"maxblagun"}
         time={"2 month"}
@@ -35,7 +36,8 @@ export default function Home() {
           "ut overall it look incredible. You've nailed the design and responsiveness at various breakpoints works really well."
         }
         like={0}
-      />
+      /> */}
+      <EditReply avtar={data.currentUser.image.png} like={0}/>
     </main>
   );
 }

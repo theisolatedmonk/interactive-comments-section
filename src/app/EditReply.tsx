@@ -13,10 +13,12 @@ import Post from "./Post";
 import Reply from "./Reply";
 
 type EditReplyType = {
-    avtar:any
+    avtar:string,
+    like: number,
+
 }
 
-export default function EditReply({}: EditReplyType) {
+export default function EditReply(props: EditReplyType) {
   return (
     <section className="flex  text-[hsl(211,10%,45%)]  w-[600px] justify-end">
     <div className="flex  bg-[hsl(0,0%,100%)]  p-4 gap-4 w-[550px] rounded-lg">
@@ -24,7 +26,7 @@ export default function EditReply({}: EditReplyType) {
         <button className="flex items-center justify-center fill-[hsl(239,57%,85%)] hover:fill-[hsl(238,40%,52%)]">
           <Image src={pluseIcon} alt={""} />
         </button>
-        <p className="text-[hsl(238,40%,52%)]">12</p>
+        <p className="text-[hsl(238,40%,52%)]">{props.like}</p>
         <button className="flex items-center justify-center text-[hsl(239,57%,85%)] hover:text-[hsl(238,40%,52%)]">
           <Image src={minusIcon} alt={""} />
         </button>
@@ -33,7 +35,7 @@ export default function EditReply({}: EditReplyType) {
         <div className="flex  items-center justify-between">
           <div className="flex gap-1 text-sm items-center">
             {" "}
-            <Image className="w-6 h-6" src={props.avtar} alt={""} />
+            <img className="w-6 h-6" src={props.avtar} alt={""} />
             <p className="text-[hsl(212,24%,26%)]">Name</p>
             <p className="bg-[hsl(238,40%,52%)] rounded-sm px-[8px] py-[1px] text-center text-[hsl(0,0%,100%)]">
               You
